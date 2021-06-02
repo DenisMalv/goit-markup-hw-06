@@ -885,6 +885,7 @@ body {
   padding: 0;
   width: 30px;
   height: 30px;
+  color: var(--text-color-pureblack);
 
   position: absolute;
   top: 8px;
@@ -895,11 +896,19 @@ body {
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-}
 
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-button:hover,
+.modal-button:focus {
+  color: var(--text-color-accent);
+}
 .modal-icon-close {
   width: 18px;
   height: 18px;
+  fill: currentColor;
 }
 
 .is-hidden {
@@ -976,6 +985,7 @@ body {
   line-height: 1.87;
   letter-spacing: 0.06em;
   color: var(--text-color-white);
+  cursor: pointer;
 }
 .subscribe-button:hover,
 .subscribe-button:focus {
@@ -1012,7 +1022,6 @@ body {
   margin-bottom: 12px;
 }
 .label-text {
-  position: relative;
   font-size: 12px;
   line-height: 1.15;
 
@@ -1034,6 +1043,10 @@ body {
   outline: none;
 
   color: var(--text-color-black);
+
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-input-text:last-child {
   margin-bottom: 20px;
@@ -1061,6 +1074,10 @@ body {
   left: 55px;
 
   fill: currentColor;
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .person {
   top: 104px;
@@ -1086,23 +1103,78 @@ body {
   color: var(--text-color-black);
 
   resize: none;
+
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.row {
+.modal-input-textarea:focus {
+  border-color: var(--button-backgr-color);
+}
+
+.private-policy {
+  display: flex;
+  flex-direction: row;
+  margin-left: 12px;
   margin-bottom: 30px;
 }
-.custom-chekbox {
-  display: inline-block;
+/* кастом */
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
-.modal-text {
+
+/* для элемента label, связанного с .custom-checkbox */
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.custom-checkbox + label::before {
+  content: '';
   display: inline-block;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 2px solid var(--text-color-black);
+  border-radius: 2px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  cursor: pointer;
+
+  transition-property: border-color, background-image, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked) + label::before {
+  border-color: var(--button-backgr-color);
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.custom-checkbox:checked + label::before {
+  border-color: #0b76ef;
+  background-color: #0b76ef;
+  background-image: url('../images/Vector.svg');
+  background-size: contain;
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled + label::before {
+  background-color: #e9ecef;
+}
+
+.modal-text {
   color: var(--text-color-standart);
 }
 .modal-text-link {
-  display: inline-block;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
   text-decoration-line: underline;
   color: var(--text-color-accent);
 }
@@ -1115,8 +1187,8 @@ body {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
-
   letter-spacing: 0.06em;
+  cursor: pointer;
 
   color: var(--text-color-white);
 
