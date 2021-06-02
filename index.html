@@ -401,13 +401,40 @@
             </div>
         </div>
     </footer>
-    <div class="backdrop is-hidden" data-modal>
+    <div class="backdrop is-hiddenn" data-modal>
         <div class="modal">
             <button class="modal-button" data-modal-close type="button">
-                <svg class="modal-icon">
+                <svg class="modal-icon-close">
                     <use href="./images/icons.svg#icon-close"></use>
                 </svg>
             </button>
+            <form action="#" class="modal-form">
+                <p class="modal-text-head">Оставьте свои данные, мы вам перезвоним</p>
+                <label for="name" class="label-text">Имя</label>
+                    <input id="name" class="modal-input-text" type="text" name="user-name">
+                    <svg class="modal-icon person">
+                        <use href="./images/icons.svg#icon-person-modal"></use>
+                    </svg>
+                <label for="tell" class="label-text">Телефон</label>
+                    <input id="tell" class="modal-input-text"  type="tel" name="user-tel">
+                    <svg class="modal-icon phone">
+                        <use href="./images/icons.svg#icon-phone-modal"></use>
+                    </svg>
+                <label for="email" class="label-text">Почта</label>
+                    <input id="email" class="modal-input-text"  type="email" name="user-email">
+                    <svg class="modal-icon email">
+                        <use href="./images/icons.svg#icon-email-modal"></use>
+                    </svg>
+                <label for="area" class="label-text">Комментарий</label>
+                    <textarea id="area"  class="modal-input-textarea"  name="user-comment" id="comment" placeholder="Комментарий" ></textarea>
+                <div class="row">
+                    <label for="chek" class="custom-chekbox"></label>                
+                        <input id="check" class="chekbox"  type="checkbox" name="private">
+                    <p class="modal-text" >Соглашаюсь с рассылкой и принимаю </p>
+                    <a class="modal-text-link" href="#">Условия договора</a>
+                </div>
+                <button class="modal-button-send" type="submit">Отправить</button>
+            </form>
 
         </div>
     </div>
