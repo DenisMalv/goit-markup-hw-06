@@ -1025,6 +1025,11 @@ body {
 
   margin-bottom: 12px;
 }
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 10px;
+}
 .label-text {
   font-size: 12px;
   line-height: 1.15;
@@ -1040,7 +1045,7 @@ body {
   padding-right: 12px;
   padding-left: 42px;
   padding-bottom: 12px;
-  margin-bottom: 10px;
+  width: 100%;
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
   border-radius: 4px;
@@ -1075,7 +1080,9 @@ body {
   position: absolute;
   width: 18px;
   height: 18px;
-  left: 55px;
+  top: 50%;
+  left: 15px;
+  transform: translatey(-50%);
 
   fill: currentColor;
 
@@ -1083,7 +1090,7 @@ body {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.person {
+/* .person {
   top: 104px;
 }
 .phone {
@@ -1091,7 +1098,7 @@ body {
 }
 .email {
   top: 243px;
-}
+} */
 
 .modal-input-textarea {
   padding: 12px 16px;
@@ -1129,11 +1136,16 @@ body {
   margin-left: 12px;
   margin-bottom: 30px;
 }
-/* кастом */
+/* =================== кастом ====================*/
 .custom-checkbox {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 /* для элемента label, связанного с .custom-checkbox */
@@ -1191,8 +1203,7 @@ body {
 }
 .modal-button-send {
   padding: 10px 56px;
-  margin-left: auto;
-  margin-right: auto;
+  align-self: center;
 
   font-family: inherit;
   font-weight: 700;
